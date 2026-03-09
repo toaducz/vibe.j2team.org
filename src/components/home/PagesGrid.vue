@@ -203,7 +203,7 @@ onUnmounted(() => document.removeEventListener('keydown', handleKeydown))
           "
           @click="activeCategory = null"
         >
-          Tất cả
+          Tất cả ({{ pages.length }})
         </button>
         <button
           v-for="cat in categories"
