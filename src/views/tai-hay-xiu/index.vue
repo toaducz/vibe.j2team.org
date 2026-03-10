@@ -1,4 +1,12 @@
 <template>
+  <div class="flex justify-center">
+    <RouterLink
+      to="/"
+      class="m-4 inline-flex items-center gap-2 border border-border-default bg-bg-surface/50 backdrop-blur-sm px-5 py-2.5 text-sm text-text-secondary transition hover:border-accent-coral hover:text-accent-coral z-10 rounded-full"
+    >
+      &larr; Quay về chính đạo
+    </RouterLink>
+  </div>
   <div class="troll-container">
     <h2 class="title">🔮 Trợ Lý Tâm Linh Bắt Cầu</h2>
 
@@ -41,6 +49,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import imgBoiRoi from './assets/boi-roi.jpg'
 import goPhim from './assets/chu-cong-an-go-phim.jpg'
 import justDoIt from './assets/just-do-it.png'
