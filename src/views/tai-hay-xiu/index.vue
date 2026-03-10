@@ -101,7 +101,13 @@ const shuffleArray = (array: string[]) => {
   const shuffled = [...array]
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
-    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+
+    // Dùng biến tạm để swap thay vì destructuring
+    const temp = shuffled[i]
+    if (temp !== undefined && shuffled[j] !== undefined) {
+      shuffled[i] = shuffled[j]
+      shuffled[j] = temp
+    }
   }
   return shuffled
 }
@@ -124,12 +130,14 @@ const calculateResult = () => {
 
   if (roll <= 20) {
     // 20% Tài
-    resultMessage.value = taiResults[getRandomInt(0, taiResults.length - 1)]
+    resultMessage.value =
+      taiResults[getRandomInt(0, taiResults.length - 1)] ?? 'TÀI! Cứ tin tôi, các ngài bảo thế!'
     resultImage.value = justDoIt
     resultColorClass.value = 'text-tai'
   } else if (roll <= 40) {
     // 20% Xỉu
-    resultMessage.value = xiuResults[getRandomInt(0, xiuResults.length - 1)]
+    resultMessage.value =
+      xiuResults[getRandomInt(0, xiuResults.length - 1)] ?? 'XỈU! Khép góc này chỉ có xỉu thôi!'
     resultImage.value = miyabiYes
     resultColorClass.value = 'text-xiu'
   } else if (roll <= 50) {
